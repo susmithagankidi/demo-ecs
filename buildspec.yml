@@ -25,6 +25,6 @@ phases:
       - docker push $REPOSITORY_URI:latest
       - docker push $REPOSITORY_URI:$IMAGE_TAG
       - echo Writing image definitions file...
-      - printf '[{"name":"fargate-task-definition-container,"imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
+      - printf '[{"name":"fargate-task-definition-container,"imageUri":"272842187865.dkr.ecr.us-east-1.amazonaws.com/hello-repository:04f2b37"}]' > imagedefinitions.json
 artifacts:
     files: imagedefinitions.json
