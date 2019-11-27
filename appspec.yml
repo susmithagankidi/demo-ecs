@@ -5,5 +5,5 @@ Resources:
       Properties:
         TaskDefinition: <TASK_DEFINITION>
         LoadBalancerInfo:
-          ContainerName: "sample-website"
+          ContainerName: "pipeline-ecs-container"
           ContainerPort: 80
