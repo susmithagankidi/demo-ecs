@@ -1,24 +1,43 @@
 {
-    "executionRoleArn": "arn:aws:iam::272842187865:role/ecsTaskExecutionRole",
-    "containerDefinitions": [
+  "executionRoleArn": "arn:aws:iam::272842187865:role/ecsTaskExecutionRole",
+  "containerDefinitions": [
+    {
+      "portMappings": [
         {
-            "name": "pipeline-ecs-container",
-            "image": "<IMAGE1_NAME>",
-            "essential": true,
-            "portMappings": [
-                {
-                    "hostPort": 80,
-                    "protocol": "tcp",
-                    "containerPort": 80
-                }
-            ]
+          "hostPort": 80,
+          "protocol": "tcp",
+          "containerPort": 80
         }
-    ],
-    "requiresCompatibilities": [
-        "FARGATE"
-    ],
-    "networkMode": "awsvpc",
-    "cpu": "256",
-    "memory": "512",
-    "family": "ecs-demo"
+      ],
+      "mountPoints": [
+        {
+          "readOnly": null,
+          "containerPath": "/ephemeral",
+          "sourceVolume": "ephemeral"
+        }
+      ],
+      "image": "<IMAGE1_NAME>",
+      "essential": true,
+      "name": "pipeline-ecs-container"
+    }
+  ],
+  "memory": "512",
+  "compatibilities": [
+    "EC2",
+    "FARGATE"
+  ],
+  "family": "ecs-demo",
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "networkMode": "awsvpc",
+  "cpu": "256",
+  "volumes": [
+    {
+      "name": "ephemeral",
+      "host": {
+        "sourcePath": null
+      }
+    }
+  ]
 }
