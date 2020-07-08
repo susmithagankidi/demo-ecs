@@ -31,4 +31,3 @@ artifacts:
       - imageDetail.json
       - taskdef-us-west-1-dev.json
       - appspec.yaml
-      - task.json
